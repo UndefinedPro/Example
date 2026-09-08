@@ -1,0 +1,182 @@
+/* 06 · journey — 前缀 .jn- */
+.jn-scene {
+  font-family: var(--font-body);
+}
+.jn-center {
+  justify-content: center;
+}
+
+/* step 0 —— 追踪开场 */
+.jn-dispatch {
+  margin-top: 60px;
+  width: 1100px;
+}
+.jn-term {
+  display: inline-block;
+  font-size: 30px;
+  color: var(--surface);
+  background: var(--text);
+  border-radius: var(--r-sm);
+  padding: 20px 40px;
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 0.2s forwards;
+}
+.jn-term i {
+  font-style: normal;
+  color: var(--accent);
+  margin-right: 16px;
+}
+.jn-track {
+  width: 1100px;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fade-in 600ms var(--ease-quart) 0.8s forwards;
+}
+.jn-track-dots {
+  stroke: var(--text-faint);
+  stroke-width: 5;
+  stroke-dasharray: 4 18;
+  stroke-linecap: round;
+}
+.jn-packet {
+  fill: var(--accent);
+  stroke: var(--accent);
+  stroke-width: 4;
+  animation: jn-travel 2.6s var(--ease-soft) 1.2s forwards;
+}
+@keyframes jn-travel {
+  from { transform: translateX(0); }
+  to   { transform: translateX(560px); }
+}
+.jn-q {
+  margin: 90px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 108px;
+  font-weight: 700;
+  letter-spacing: var(--track-tight);
+  color: var(--text);
+  text-align: center;
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) 4.4s forwards;
+}
+.jn-q em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 1 / 2 —— 路线图 */
+.jn-route {
+  margin-top: 150px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.jn-stop-slot {
+  display: flex;
+  align-items: center;
+}
+.jn-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 268px;
+  padding: 40px 18px 36px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.jn-stop-no {
+  font-style: normal;
+  font-family: var(--font-display-en);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--accent);
+}
+.jn-stop-name {
+  font-family: var(--font-mono);
+  font-size: 29px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+.jn-stop-sub {
+  font-size: 21px;
+  color: var(--text-mute);
+  text-align: center;
+}
+.jn-stop-link {
+  flex: none;
+  width: 28px;
+  height: 0;
+  border-top: 3px solid var(--accent);
+  opacity: 0;
+  animation: fade-in 400ms var(--ease-quart) forwards;
+}
+.jn-route-note {
+  margin: 90px 0 0;
+  text-align: center;
+  font-size: 30px;
+  color: var(--text-mute);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+
+/* step 2 补充 —— 已走过的站灰化 + 车轮 */
+.jn-route-dim {
+  margin-top: 20px;
+}
+.jn-route-dim .jn-stop {
+  animation: none;
+  opacity: 0.4;
+  padding: 18px 14px;
+  box-shadow: none;
+  background: var(--surface-3);
+  width: 230px;
+}
+.jn-route-dim .jn-stop-name {
+  font-size: 22px;
+}
+.jn-route:not(.jn-route-dim) {
+  margin-top: 90px;
+}
+.jn-wheel {
+  width: 150px;
+  align-self: center;
+  margin-left: 26px;
+  opacity: 0;
+  animation: pop-in 600ms var(--ease-overshoot) forwards;
+}
+.jn-wheel-rim {
+  fill: var(--surface-2);
+  stroke: var(--text);
+  stroke-width: 8;
+}
+.jn-wheel-spoke {
+  stroke: var(--accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: jn-spin 1s linear infinite;
+}
+@keyframes jn-spin {
+  to { transform: rotate(360deg); }
+}
+.jn-go {
+  margin: 80px 0 0;
+  text-align: center;
+  font-family: var(--font-display-cn);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.jn-go em {
+  font-style: normal;
+  color: var(--accent);
+}

@@ -1,0 +1,278 @@
+/* 16 · wrap-up — 前缀 .wu- */
+.wu-scene {
+  font-family: var(--font-body);
+}
+.wu-center {
+  justify-content: center;
+}
+
+/* step 0 —— 收束大字 */
+.wu-big {
+  margin: 30px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 150px;
+  font-weight: 700;
+  letter-spacing: var(--track-tight);
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) forwards;
+}
+.wu-big em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 1-4 —— 左轨 + 要点卡 */
+.wu-body {
+  margin-top: 40px;
+  display: flex;
+  gap: 90px;
+  align-items: flex-start;
+}
+.wu-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 640px;
+  flex: none;
+}
+.wu-item {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  font-family: var(--font-display-cn);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-faint);
+  padding: 30px 40px;
+  border: 2px dashed var(--rule);
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 650ms var(--ease-quart) forwards;
+}
+.wu-item:nth-child(1) { animation-delay: 0.1s; }
+.wu-item:nth-child(2) { animation-delay: 0.25s; }
+.wu-item:nth-child(3) { animation-delay: 0.4s; }
+.wu-item:nth-child(4) { animation-delay: 0.55s; }
+.wu-item-no {
+  font-size: 44px;
+  color: var(--text-faint);
+}
+.wu-item.is-on {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+.wu-item.is-on .wu-item-no {
+  color: var(--accent);
+}
+.wu-item.is-done {
+  border-style: solid;
+  opacity: 0.4 !important;
+  animation: none;
+}
+.wu-check {
+  position: absolute;
+  right: 34px;
+  top: 32px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  color: var(--text-mute);
+}
+.wu-detail {
+  flex: 1;
+  padding-top: 4px;
+}
+.wu-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 46px;
+  padding: 70px 76px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.5s forwards;
+}
+.wu-note {
+  margin: 0;
+  font-size: 33px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.wu-note b {
+  color: var(--accent);
+}
+
+/* 要点 1 —— 油门 + 方向盘 */
+.wu-duo {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+.wu-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-display-cn);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 28px 40px;
+  opacity: 0;
+  animation: pop-in 650ms var(--ease-overshoot) forwards;
+}
+.wu-chip:first-child {
+  animation-delay: 0.9s;
+}
+.wu-chip:last-child {
+  animation-delay: 1.4s;
+}
+.wu-chip code {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.wu-plus {
+  font-size: 60px;
+  color: var(--text-faint);
+}
+
+/* 要点 2 —— 公式 */
+.wu-formula {
+  font-family: var(--font-mono);
+  font-size: 62px;
+  font-weight: 700;
+  color: var(--text);
+}
+.wu-formula b {
+  color: var(--accent);
+}
+
+/* 要点 3 —— 20ms */
+.wu-beat {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+.wu-beat .hero-num {
+  font-size: 120px;
+  color: var(--accent);
+}
+.wu-beat span {
+  font-family: var(--font-display-cn);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+}
+.wu-steps {
+  display: flex;
+  gap: 22px;
+}
+.wu-step {
+  font-size: 29px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  padding: 18px 32px;
+  opacity: 0;
+  animation: rise-in 650ms var(--ease-quart) forwards;
+}
+
+/* 要点 4 —— PID */
+.wu-pid {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.wu-pid-node {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 26px 36px;
+}
+.wu-pid-link {
+  width: 110px;
+  height: 4px;
+  background: var(--accent);
+  position: relative;
+  opacity: 0;
+  animation: fade-in 400ms var(--ease-quart) 1s forwards;
+}
+.wu-pid-link::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--accent);
+}
+.wu-pid-node + .wu-pid-node {
+  opacity: 0;
+  animation: pop-in 600ms var(--ease-overshoot) 1.2s forwards;
+}
+
+/* step 5 —— 预告 */
+.wu-next-head {
+  margin: 30px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.2s forwards;
+}
+.wu-sensors {
+  margin-top: 80px;
+  display: flex;
+  gap: 60px;
+}
+.wu-sensor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 46px 70px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.wu-sensor b {
+  font-family: var(--font-display-en);
+  font-style: italic;
+  font-size: 64px;
+  color: var(--accent);
+}
+.wu-sensor em {
+  font-style: normal;
+  font-size: 27px;
+  color: var(--text-mute);
+}
+.wu-bye {
+  margin: 90px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 88px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) forwards;
+}

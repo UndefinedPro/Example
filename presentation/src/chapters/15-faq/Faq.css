@@ -1,0 +1,173 @@
+/* 15 · faq — 前缀 .qa- */
+.qa-scene {
+  font-family: var(--font-body);
+}
+.qa-center {
+  justify-content: center;
+}
+
+/* step 0 —— 索引 */
+.qa-index-head {
+  margin: 30px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 0.1s forwards;
+}
+.qa-index {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 1000px;
+}
+.qa-index-item {
+  display: flex;
+  align-items: baseline;
+  gap: 34px;
+  font-family: var(--font-display-cn);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--text);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 26px;
+  opacity: 0;
+  animation: rise-in 650ms var(--ease-quart) forwards;
+}
+.qa-index-item .hero-num {
+  font-size: 52px;
+  color: var(--accent);
+}
+
+/* step 1-3 —— 左轨 + 处方卡 */
+.qa-body {
+  margin-top: 44px;
+  display: flex;
+  gap: 90px;
+  align-items: flex-start;
+}
+.qa-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 560px;
+  flex: none;
+}
+.qa-rail-item {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 26px;
+  font-family: var(--font-display-cn);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-faint);
+  padding: 28px 36px;
+  border: 2px dashed var(--rule);
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 650ms var(--ease-quart) forwards;
+}
+.qa-rail-item:nth-child(1) { animation-delay: 0.1s; }
+.qa-rail-item:nth-child(2) { animation-delay: 0.25s; }
+.qa-rail-item:nth-child(3) { animation-delay: 0.4s; }
+.qa-rail-item .hero-num {
+  font-size: 40px;
+  color: var(--text-faint);
+}
+.qa-rail-item.is-on {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+.qa-rail-item.is-on .hero-num {
+  color: var(--accent);
+}
+.qa-rail-item.is-done {
+  border-style: solid;
+  opacity: 0.4 !important;
+  animation: none;
+}
+.qa-check {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  color: var(--text-mute);
+}
+.qa-detail {
+  flex: 1;
+}
+.qa-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+  padding: 60px 70px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.4s forwards;
+}
+.qa-q {
+  margin: 0;
+  font-family: var(--font-display-cn);
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--text);
+}
+.qa-cause {
+  margin: 0;
+  font-size: 32px;
+  color: var(--text-mute);
+}
+.qa-fixes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.qa-fix {
+  display: flex;
+  align-items: baseline;
+  gap: 26px;
+  padding: 26px 36px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-sm);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.qa-fix-no {
+  font-family: var(--font-mono);
+  font-size: 27px;
+  color: var(--accent);
+}
+.qa-fix-text {
+  font-size: 33px;
+  font-weight: 700;
+  color: var(--text);
+}
+.qa-fix-text em {
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-mute);
+  margin-left: 20px;
+}
+.qa-badge {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--r-pill);
+  padding: 14px 34px;
+  opacity: 0;
+  animation: pop-in 650ms var(--ease-overshoot) forwards;
+}

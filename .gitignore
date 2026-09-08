@@ -1,0 +1,4 @@
+node_modules/
+screenshots_judge/
+steps-fix*.json
+steps-recover.json

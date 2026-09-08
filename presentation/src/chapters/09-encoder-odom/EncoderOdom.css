@@ -1,0 +1,418 @@
+/* 09 · encoder-odom — 前缀 .eo- */
+.eo-scene {
+  font-family: var(--font-body);
+}
+.eo-center {
+  justify-content: center;
+}
+
+/* step 0 —— 总览空槽 */
+.eo-file-card {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+  width: 1100px;
+  padding: 60px 80px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.2s forwards;
+}
+.eo-file {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+}
+.eo-file-note {
+  margin: 0;
+  font-size: 28px;
+  color: var(--text-mute);
+}
+.eo-skel {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+.eo-skel-slot {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 2px dashed var(--rule);
+  border-radius: var(--r-sm);
+  padding: 20px 30px;
+  opacity: 0;
+  animation: rise-in 600ms var(--ease-quart) forwards;
+}
+.eo-skel-slot em {
+  font-style: normal;
+  font-family: var(--font-display-en);
+  font-size: 36px;
+  color: var(--text-faint);
+}
+.eo-skel-blank {
+  height: 30px;
+  flex: 1;
+}
+
+/* step 1-4 —— 左轨 + 细节 */
+.eo-body {
+  margin-top: 34px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+.eo-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 500px;
+  flex: none;
+}
+.eo-slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 30px;
+  border: 2px dashed var(--rule);
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 650ms var(--ease-quart) forwards;
+}
+.eo-slot:nth-child(1) { animation-delay: 0.1s; }
+.eo-slot:nth-child(2) { animation-delay: 0.25s; }
+.eo-slot:nth-child(3) { animation-delay: 0.4s; }
+.eo-slot:nth-child(4) { animation-delay: 0.55s; }
+.eo-slot em {
+  font-style: normal;
+  font-family: var(--font-display-en);
+  font-size: 36px;
+  color: var(--text-faint);
+}
+.eo-slot b {
+  font-family: var(--font-display-cn);
+  font-size: 31px;
+  font-weight: 700;
+  color: var(--text-faint);
+}
+.eo-slot.is-on {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.eo-slot.is-on em {
+  color: var(--accent);
+}
+.eo-slot.is-on b {
+  color: var(--text);
+}
+.eo-slot.is-done {
+  border-style: solid;
+  opacity: 0.4 !important;
+  animation: none;
+}
+.eo-check {
+  position: absolute;
+  right: 28px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  color: var(--text-mute);
+}
+.eo-detail {
+  flex: 1;
+  padding-top: 6px;
+}
+.eo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 56px 66px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.4s forwards;
+}
+.eo-note {
+  margin: 0;
+  font-size: 30px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.eo-note b {
+  color: var(--accent);
+}
+
+/* step 1 —— 脉冲链 */
+.eo-chain {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.eo-enc {
+  width: 130px;
+  flex: none;
+}
+.eo-enc-rim {
+  fill: var(--surface);
+  stroke: var(--text);
+  stroke-width: 6;
+}
+.eo-enc-teeth {
+  stroke: var(--text-2);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: eo-step 1s steps(4) infinite;
+}
+@keyframes eo-step {
+  to { transform: rotate(90deg); }
+}
+.eo-enc-hub {
+  fill: var(--accent);
+}
+.eo-chain-node {
+  font-family: var(--font-display-cn);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 22px 30px;
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.eo-chain-node:first-of-type {
+  animation-delay: 0.4s;
+}
+.eo-chain-node-rpm {
+  color: var(--accent);
+  border-color: var(--accent);
+  font-family: var(--font-mono);
+}
+.eo-chain-arrow {
+  width: 64px;
+  height: 4px;
+  background: var(--accent);
+  position: relative;
+  opacity: 0;
+  animation: fade-in 350ms var(--ease-quart) forwards;
+}
+.eo-chain-arrow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--accent);
+}
+
+/* step 2 —— sign */
+.eo-sign {
+  font-family: var(--font-mono);
+  font-size: 96px;
+  font-weight: 700;
+  color: var(--surface);
+  background: var(--text);
+  border-radius: var(--r-card);
+  padding: 40px 70px;
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.4s forwards;
+}
+.eo-sign-desc {
+  margin: 0;
+  font-family: var(--font-display-cn);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.eo-sign-desc b {
+  color: var(--accent);
+}
+.eo-sign-desc em {
+  font-style: normal;
+  color: var(--accent);
+  border-bottom: 4px solid var(--accent);
+}
+.eo-chip {
+  font-size: 28px;
+  color: var(--text-2);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  border-radius: var(--r-sm);
+  padding: 16px 30px;
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+
+/* step 3 —— 滤波曲线 */
+.eo-curve {
+  width: 900px;
+}
+.eo-curve-raw {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  opacity: 0.85;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: eo-draw 1.8s var(--ease-soft) 0.6s forwards;
+}
+.eo-curve-lp {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: eo-draw 1.6s var(--ease-soft) 2.2s forwards;
+}
+@keyframes eo-draw {
+  to { stroke-dashoffset: 0; }
+}
+.eo-legend {
+  display: flex;
+  gap: 60px;
+}
+.eo-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 28px;
+  color: var(--text-2);
+}
+.eo-legend-item code {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent);
+}
+.eo-dot-raw {
+  width: 40px;
+  height: 4px;
+  background: var(--accent);
+}
+.eo-dot-lp {
+  width: 40px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--text);
+}
+
+/* step 4 —— 积分 */
+.eo-int {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.eo-int-src {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 26px 34px;
+}
+.eo-int-arrow {
+  width: 64px;
+  height: 4px;
+  background: var(--accent);
+  position: relative;
+  opacity: 0;
+  animation: fade-in 350ms var(--ease-quart) forwards;
+}
+.eo-int-arrow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--accent);
+}
+.eo-int-mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display-cn);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.eo-int-mid svg {
+  width: 70px;
+}
+.eo-int-sym {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+.eo-int-out {
+  display: flex;
+  gap: 16px;
+}
+.eo-int-out b {
+  font-family: var(--font-mono);
+  font-size: 44px;
+  color: var(--text);
+  border: 2px solid var(--text);
+  border-radius: var(--r-sm);
+  padding: 16px 24px;
+  opacity: 0;
+  animation: pop-in 550ms var(--ease-overshoot) forwards;
+}
+.eo-int-out b:nth-child(1) { animation-delay: 2.3s; }
+.eo-int-out b:nth-child(2) { animation-delay: 2.6s; }
+.eo-int-out b:nth-child(3) { animation-delay: 2.9s; }
+.eo-odo {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.eo-odo em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text);
+}
+.eo-odo-bar {
+  width: 320px;
+  height: 12px;
+  background: var(--surface-3);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.eo-odo-bar i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-x 1.6s var(--ease-soft) 3.4s forwards;
+}
+.eo-odo-cap {
+  font-size: 26px;
+  color: var(--text-mute);
+}

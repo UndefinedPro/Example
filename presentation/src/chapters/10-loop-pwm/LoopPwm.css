@@ -1,0 +1,325 @@
+/* 10 · loop-pwm — 前缀 .lp- */
+.lp-scene {
+  font-family: var(--font-body);
+}
+.lp-body {
+  margin-top: 40px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+.lp-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 500px;
+  flex: none;
+}
+.lp-slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 30px;
+  border: 2px dashed var(--rule);
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 650ms var(--ease-quart) forwards;
+}
+.lp-slot:nth-child(1) { animation-delay: 0.1s; }
+.lp-slot:nth-child(2) { animation-delay: 0.25s; }
+.lp-slot:nth-child(3) { animation-delay: 0.4s; }
+.lp-slot:nth-child(4) { animation-delay: 0.55s; }
+.lp-slot em {
+  font-style: normal;
+  font-family: var(--font-display-en);
+  font-size: 36px;
+  color: var(--text-faint);
+}
+.lp-slot b {
+  font-family: var(--font-display-cn);
+  font-size: 31px;
+  font-weight: 700;
+  color: var(--text-faint);
+}
+.lp-slot.is-on {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.lp-slot.is-on em {
+  color: var(--accent);
+}
+.lp-slot.is-on b {
+  color: var(--text);
+}
+.lp-slot.is-done {
+  border-style: solid;
+  opacity: 0.4 !important;
+  animation: none;
+}
+.lp-check {
+  position: absolute;
+  right: 28px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  color: var(--text-mute);
+}
+.lp-detail {
+  flex: 1;
+  padding-top: 6px;
+}
+.lp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 44px;
+  padding: 56px 66px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.5s forwards;
+}
+.lp-note {
+  margin: 0;
+  font-size: 30px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.lp-note b {
+  color: var(--accent);
+}
+
+/* step 0 —— 外环 */
+.lp-outer {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+.lp-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 36px 44px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  font-family: var(--font-display-cn);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.lp-box:first-child {
+  animation-delay: 0.4s;
+}
+.lp-box em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--text-mute);
+}
+.lp-box-accent {
+  border: 2px solid var(--accent);
+  background: var(--accent-soft);
+}
+.lp-box-accent b {
+  color: var(--accent);
+}
+.lp-flow {
+  width: 90px;
+  height: 4px;
+  background: var(--accent);
+  position: relative;
+  opacity: 0;
+  animation: fade-in 350ms var(--ease-quart) forwards;
+}
+.lp-flow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--accent);
+}
+
+/* step 1 —— 每轮 PID */
+.lp-pids {
+  display: flex;
+  gap: 50px;
+}
+.lp-pid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 46px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.lp-pid-name {
+  font-style: normal;
+  font-family: var(--font-display-cn);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.lp-pid-io {
+  font-size: 29px;
+  color: var(--text-2);
+}
+.lp-pid-io b {
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  padding: 0 8px;
+}
+.lp-pid-arrow {
+  width: 70px;
+  height: 4px;
+  background: var(--accent);
+  position: relative;
+  opacity: 0;
+  animation: fade-in 350ms var(--ease-quart) forwards;
+}
+.lp-pid-arrow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--accent);
+}
+.lp-pid-out {
+  font-family: var(--font-mono);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text);
+  border-bottom: 4px solid var(--accent);
+  padding-bottom: 6px;
+}
+
+/* step 2 —— 死区补偿 */
+.lp-band {
+  width: 100%;
+}
+.lp-axis {
+  position: relative;
+  display: flex;
+  height: 320px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+.lp-axis-zone {
+  display: block;
+  padding-top: 16px;
+  text-align: center;
+  font-size: 21px;
+  color: var(--text-mute);
+  white-space: nowrap;
+  letter-spacing: 0.14em;
+}
+.lp-axis-zone-dead {
+  width: 38%;
+  background: var(--surface-3);
+  border-right: 2px dashed var(--text-faint);
+}
+.lp-axis-zone-live {
+  flex: 1;
+  background: var(--surface);
+  color: var(--accent);
+}
+.lp-axis-gate {
+  position: absolute;
+  left: 38%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fade-in 600ms var(--ease-quart) forwards;
+}
+.lp-axis-gate-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 3px solid var(--accent);
+}
+.lp-axis-gate b {
+  font-size: 76px;
+  color: var(--accent);
+  background: var(--surface-2);
+  border: 2px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: 10px 22px;
+}
+.lp-axis-gate em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.14em;
+  color: var(--text-mute);
+  background: var(--surface-2);
+  padding: 4px 12px;
+  border-radius: var(--r-xs);
+}
+.lp-try {
+  position: absolute;
+  left: 6%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+}
+.lp-try em {
+  font-style: normal;
+  font-size: 22px;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  background: var(--surface-2);
+  padding: 2px 10px;
+  border-radius: var(--r-xs);
+  white-space: nowrap;
+}
+.lp-try-bar {
+  display: block;
+  height: 14px;
+  border-radius: var(--r-pill);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-x 900ms var(--ease-expo) forwards;
+}
+.lp-try-weak {
+  bottom: 118px;
+  animation: fade-in 500ms var(--ease-quart) 3s forwards;
+}
+.lp-try-weak .lp-try-bar {
+  width: 120px;
+  background: var(--text-faint);
+  animation-delay: 3.4s;
+}
+.lp-try-boost {
+  bottom: 40px;
+  animation: fade-in 500ms var(--ease-quart) 4.6s forwards;
+}
+.lp-try-boost .lp-try-bar {
+  width: 330px;
+  background: var(--accent);
+  animation-delay: 5s;
+}

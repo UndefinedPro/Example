@@ -1,0 +1,18 @@
+[
+  { "id": "01-coldopen", "steps": 3 },
+  { "id": "02-cmdvel-twist", "steps": 4 },
+  { "id": "03-diff-kinematics", "steps": 4 },
+  { "id": "04-kinematics-detail", "steps": 4 },
+  { "id": "05-odom-inverse", "steps": 3 },
+  { "id": "06-journey", "steps": 3 },
+  { "id": "07-motion-task-heartbeat", "steps": 4 },
+  { "id": "08-motion-task-loop", "steps": 4 },
+  { "id": "09-encoder-odom", "steps": 5 },
+  { "id": "10-loop-pwm", "steps": 3 },
+  { "id": "11-why-closed-loop", "steps": 4 },
+  { "id": "12-pid-gains", "steps": 4 },
+  { "id": "13-odom-to-tf", "steps": 4 },
+  { "id": "14-hands-on", "steps": 6 },
+  { "id": "15-faq", "steps": 4 },
+  { "id": "16-wrap-up", "steps": 6 }
+]

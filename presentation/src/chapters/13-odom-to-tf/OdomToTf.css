@@ -1,0 +1,277 @@
+/* 13 · odom-to-tf — 前缀 .tf- */
+.tf-scene {
+  font-family: var(--font-body);
+}
+.tf-center {
+  justify-content: center;
+}
+.tf-head {
+  margin: 30px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 58px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.2s forwards;
+}
+.tf-head em {
+  font-style: normal;
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-decoration-color: var(--text-faint);
+}
+.tf-head code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+/* step 0 —— 两个世界 */
+.tf-worlds {
+  margin-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.tf-world {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  width: 520px;
+  padding: 70px 50px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) forwards;
+}
+.tf-world-topic {
+  font-family: var(--font-mono);
+  font-size: 78px;
+  font-weight: 700;
+  color: var(--text);
+}
+.tf-world-users {
+  display: flex;
+  gap: 26px;
+}
+.tf-world-users b {
+  font-family: var(--font-display-en);
+  font-size: 62px;
+  color: var(--text);
+}
+.tf-world-sub {
+  font-size: 25px;
+  color: var(--text-mute);
+}
+.tf-crack {
+  width: 190px;
+  flex: none;
+}
+.tf-crack-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: tf-crack-draw 1.2s var(--ease-soft) 3s forwards;
+}
+@keyframes tf-crack-draw {
+  to { stroke-dashoffset: 0; }
+}
+.tf-gap-note {
+  margin: 76px 0 0;
+  text-align: center;
+  font-family: var(--font-display-cn);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+
+/* step 1 —— 翻译官代码卡 */
+.tf-code {
+  margin-top: 44px;
+  padding: 50px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.tf-code-head {
+  display: flex;
+  align-items: baseline;
+  gap: 40px;
+}
+.tf-code-head code {
+  font-family: var(--font-mono);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.tf-code-role {
+  font-size: 27px;
+  color: var(--text-2);
+}
+.tf-code-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  font-family: var(--font-mono);
+}
+.tf-code-line {
+  margin: 0;
+  font-size: 33px;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.tf-code-line i {
+  font-style: normal;
+  font-size: 24px;
+  color: var(--text-faint);
+  margin-left: 26px;
+}
+.tf-rate {
+  display: inline-block;
+  margin: 40px auto 0;
+  font-size: 32px;
+  color: var(--text-2);
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--r-pill);
+  padding: 18px 44px;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.tf-rate .hero-num {
+  font-size: 46px;
+  color: var(--accent);
+}
+
+/* step 2 —— 为啥要桥 */
+.tf-asks {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  align-items: center;
+}
+.tf-ask {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  font-size: 38px;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  padding: 30px 60px;
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.tf-ask b {
+  font-family: var(--font-display-en);
+  font-size: 44px;
+  color: var(--text);
+}
+.tf-verdict {
+  margin: 80px 0 0;
+  text-align: center;
+  font-family: var(--font-display-cn);
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) forwards;
+}
+.tf-verdict code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+.tf-verdict em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 3 —— 桥 */
+.tf-bridge {
+  position: relative;
+  margin-top: 30px;
+  width: 1100px;
+}
+.tf-bridge svg {
+  width: 1100px;
+}
+.tf-bank {
+  stroke: var(--text-2);
+  stroke-width: 10;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: fade-in 600ms var(--ease-quart) 0.3s forwards;
+}
+.tf-bridge-arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: tf-arc 1.2s var(--ease-soft) 0.7s forwards;
+}
+@keyframes tf-arc {
+  to { stroke-dashoffset: 0; }
+}
+.tf-pillar {
+  fill: var(--text-2);
+  opacity: 0;
+  animation: rise-in 600ms var(--ease-quart) 1.4s forwards;
+}
+.tf-bridge-label {
+  position: absolute;
+  top: 82%;
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: fade-in 600ms var(--ease-quart) 1.7s forwards;
+}
+.tf-bridge-label-l {
+  left: 60px;
+}
+.tf-bridge-label-r {
+  right: 60px;
+}
+.tf-sign {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  align-self: center;
+  font-family: var(--font-display-cn);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+  border: 3px solid var(--text);
+  border-radius: var(--r-sm);
+  padding: 24px 44px;
+  opacity: 0;
+  animation: pop-in 700ms var(--ease-overshoot) forwards;
+}
+.tf-sign em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  color: var(--text-mute);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  padding: 6px 14px;
+}

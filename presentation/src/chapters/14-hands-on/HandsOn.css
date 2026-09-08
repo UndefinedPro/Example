@@ -1,0 +1,365 @@
+/* 14 · hands-on — 前缀 .ho- */
+.ho-scene {
+  font-family: var(--font-body);
+}
+.ho-center {
+  justify-content: center;
+}
+.ho-note {
+  margin: 54px 0 0;
+  text-align: center;
+  font-size: 32px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.ho-note b {
+  color: var(--accent);
+}
+.ho-note em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* 终端块（step 1/2/3 共用） */
+.ho-term {
+  width: 100%;
+  background: var(--text);
+  border-radius: var(--r-card);
+  padding: 26px 44px 32px;
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.3s forwards;
+}
+.ho-term-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.ho-term-bar i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  opacity: 0.55;
+}
+.ho-term-cmd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 29px;
+  color: var(--surface);
+  word-break: break-all;
+}
+.ho-term-cmd-sm {
+  font-size: 22px;
+}
+.ho-term-cmd span {
+  color: var(--accent);
+  margin-right: 14px;
+}
+
+/* step 0 —— 安全准备 */
+.ho-preps {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+}
+.ho-prep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  width: 460px;
+  padding: 44px 40px 50px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.ho-prep-ico {
+  width: 240px;
+}
+.ho-car-body {
+  fill: var(--surface-2);
+  stroke: var(--text);
+  stroke-width: 5;
+}
+.ho-car-wheel {
+  fill: var(--surface-3);
+  stroke: var(--text);
+  stroke-width: 5;
+}
+.ho-ground {
+  stroke: var(--text-2);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+.ho-ground-dash {
+  stroke: var(--text-faint);
+  stroke-dasharray: 14 14;
+}
+.ho-open-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-dasharray: 12 12;
+  stroke-linecap: round;
+}
+.ho-open-dot {
+  fill: var(--accent);
+}
+.ho-host {
+  fill: var(--surface);
+  stroke: var(--text);
+  stroke-width: 5;
+}
+.ho-link {
+  stroke: var(--text-2);
+  stroke-width: 5;
+  stroke-dasharray: 10 10;
+}
+.ho-lamp {
+  fill: var(--accent);
+}
+.ho-lamp-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-halo 2s var(--ease-soft) 2.4s infinite;
+}
+.ho-prep b {
+  font-family: var(--font-display-cn);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+}
+.ho-prep-note {
+  margin-top: 70px;
+  text-align: center;
+  font-size: 30px;
+  color: var(--text-mute);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+
+/* step 1 —— echo /odom */
+.ho-term-out {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 32px;
+  color: var(--surface);
+}
+.ho-term-out b {
+  color: var(--accent);
+}
+.ho-val-a {
+  animation: ho-blink 2.2s var(--ease-soft) 1.6s 3;
+}
+.ho-val-b {
+  opacity: 0;
+  animation: ho-blink 2.2s var(--ease-soft) 2.7s 3;
+}
+@keyframes ho-blink {
+  0%, 100% { opacity: 0; }
+  15%, 60% { opacity: 1; }
+}
+
+/* step 2 —— 键位 */
+.ho-keys {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+}
+.ho-key {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  font-size: 30px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: pop-in 650ms var(--ease-overshoot) forwards;
+}
+.ho-key b {
+  display: grid;
+  place-items: center;
+  width: 130px;
+  height: 130px;
+  font-size: 64px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 2px solid var(--text);
+  border-bottom-width: 8px;
+  border-radius: var(--r-md);
+}
+
+/* step 3 —— 画圆 */
+.ho-circle-wrap {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 110px;
+}
+.ho-circle-cmd {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.ho-circle-params {
+  display: flex;
+  gap: 40px;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.ho-circle-params span {
+  font-size: 32px;
+  color: var(--text-2);
+  border: 1px solid var(--rule);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+  padding: 22px 36px;
+}
+.ho-circle-params .hero-num {
+  font-size: 54px;
+  color: var(--accent);
+}
+.ho-circle {
+  width: 430px;
+  flex: none;
+  opacity: 0;
+  animation: fade-in 600ms var(--ease-quart) 1.8s forwards;
+}
+.ho-circle-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-dasharray: 14 18;
+  stroke-dashoffset: 820;
+  animation: ho-dash 2.4s var(--ease-soft) 2.2s forwards;
+}
+@keyframes ho-dash {
+  to { stroke-dashoffset: 0; }
+}
+.ho-orbit {
+  transform-box: fill-box;
+  transform-origin: 180px 180px;
+  animation: ho-orbit 4s linear 2.4s infinite;
+}
+@keyframes ho-orbit {
+  to { transform: rotate(360deg); }
+}
+.ho-orbit-car {
+  fill: var(--text);
+}
+.ho-orbit-nose {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+/* step 4 —— 思考题 */
+.ho-rq {
+  margin: 34px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 76px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.3s forwards;
+}
+.ho-math {
+  margin-top: 80px;
+  display: flex;
+  align-items: baseline;
+  gap: 46px;
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) 1.2s forwards;
+}
+.ho-math-f {
+  font-family: var(--font-mono);
+  font-size: 74px;
+  font-weight: 700;
+  color: var(--text);
+}
+.ho-math-eq {
+  font-size: 64px;
+  color: var(--text-faint);
+}
+.ho-math-r .hero-num {
+  font-size: 170px;
+  color: var(--accent);
+}
+.ho-math-r {
+  font-size: 44px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* step 5 —— 回放 */
+.ho-recap-head {
+  margin: 34px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.3s forwards;
+}
+.ho-recap {
+  margin-top: 100px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.ho-recap-slot {
+  display: flex;
+  align-items: center;
+}
+.ho-recap-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 300px;
+  padding: 44px 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.ho-recap-node code {
+  font-family: var(--font-mono);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.ho-recap-node em {
+  font-style: normal;
+  font-size: 26px;
+  color: var(--text-mute);
+}
+.ho-recap-link {
+  width: 32px;
+  height: 0;
+  border-top: 3px solid var(--accent);
+  opacity: 0;
+  animation: fade-in 400ms var(--ease-quart) forwards;
+}
+
+/* 卷尺小图标（与文字同行） */
+.ho-note { display: flex; align-items: center; gap: 12px; }
+.ho-tape { width: 44px; height: 44px; flex: none; }
+.ho-tape-body { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 3; }
+.ho-tape-hub { fill: var(--accent); }
+.ho-tape-strip { fill: none; stroke: var(--accent); stroke-width: 3; }

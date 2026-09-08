@@ -1,0 +1,274 @@
+/* 01 · coldopen — 前缀 .co- */
+.co-scene {
+  font-family: var(--font-body);
+}
+.co-center {
+  justify-content: center;
+}
+
+/* step 0 —— 终端 + 小车 + 问句 */
+.co-term {
+  width: 1240px;
+  background: var(--text);
+  border-radius: var(--r-card);
+  padding: 26px 40px 30px;
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 0.2s forwards;
+}
+.co-term-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.co-term-bar i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  opacity: 0.55;
+}
+.co-term-title {
+  margin-left: 14px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--surface-3);
+  opacity: 0.6;
+}
+.co-term-line,
+.co-term-echo {
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-size: 25px;
+  color: var(--surface);
+  opacity: 0;
+  animation: fade-in 600ms var(--ease-quart) forwards;
+}
+.co-term-line {
+  animation-delay: 0.9s;
+}
+.co-term-line b {
+  color: var(--accent);
+  font-weight: 700;
+}
+.co-term-echo {
+  animation-delay: 1.5s;
+  color: var(--surface-3);
+  opacity: 0;
+}
+.co-prompt {
+  color: var(--accent);
+  margin-right: 14px;
+}
+
+.co-drive {
+  margin-top: 54px;
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 1.7s forwards;
+}
+.co-car-svg {
+  width: 1240px;
+}
+.co-ground {
+  stroke: var(--rule);
+  stroke-width: 3;
+}
+.co-trail path {
+  stroke: var(--text-faint);
+  stroke-width: 4;
+  stroke-dasharray: 18 16;
+  opacity: 0;
+  animation: fade-in 600ms var(--ease-quart) 2s forwards;
+}
+.co-car-run {
+  animation: co-roll 2.6s var(--ease-soft) 2s forwards;
+}
+@keyframes co-roll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(240px); }
+}
+.co-car-body {
+  fill: var(--surface-2);
+  stroke: var(--text);
+  stroke-width: 4;
+}
+.co-car-cabin {
+  fill: var(--accent-soft);
+  stroke: var(--text);
+  stroke-width: 4;
+}
+.co-car-lidar {
+  fill: var(--text-2);
+}
+.co-wheel-a,
+.co-wheel-b {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.co-wheel-rim {
+  fill: var(--surface);
+  stroke: var(--text);
+  stroke-width: 4;
+}
+.co-wheel-spoke {
+  stroke: var(--accent);
+  stroke-width: 4;
+}
+.co-wheel-a,
+.co-wheel-b {
+  animation: co-spin 0.9s linear infinite;
+}
+@keyframes co-spin {
+  to { transform: rotate(360deg); }
+}
+.co-arrow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  animation: fade-in 500ms var(--ease-quart) 2.6s forwards;
+}
+.co-drive-chip {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 20px;
+  color: var(--text-mute);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 8px 20px;
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) 2.9s forwards;
+}
+
+.co-q {
+  margin: 64px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 108px;
+  font-weight: 700;
+  letter-spacing: var(--track-tight);
+  color: var(--text);
+  text-align: center;
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) 4.6s forwards;
+}
+.co-q em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 1 —— 链路四层 */
+.co-layers {
+  margin-top: 90px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.co-layer-slot {
+  display: flex;
+  align-items: center;
+}
+.co-layer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 330px;
+  padding: 40px 36px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.co-layer-tag {
+  font-style: normal;
+  font-family: var(--font-display-en);
+  font-size: 30px;
+  color: var(--accent);
+}
+.co-layer-name {
+  font-family: var(--font-display-cn);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text);
+}
+.co-layer-sub {
+  font-family: var(--font-mono);
+  font-size: 19px;
+  color: var(--text-mute);
+}
+.co-layer-link {
+  width: 34px;
+  height: 0;
+  border-top: 2px solid var(--accent);
+  opacity: 0;
+  animation: fade-in 500ms var(--ease-quart) forwards;
+}
+.co-verdict {
+  margin: 84px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 8.6s forwards;
+}
+.co-verdict em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 2 —— 片名卡 */
+.co-title-block {
+  margin-top: 40px;
+  display: flex;
+  align-items: baseline;
+  gap: 44px;
+}
+.co-title-num {
+  font-size: 230px;
+  color: var(--accent);
+  opacity: 0;
+  animation: rise-in 1000ms var(--ease-quart) 0.4s forwards;
+}
+.co-title {
+  margin: 0;
+  font-family: var(--font-display-cn);
+  font-size: 128px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 1000ms var(--ease-quart) 0.9s forwards;
+}
+.co-title-sub {
+  margin: 30px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 1.8s forwards;
+}
+.co-title-sub code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+.co-title-rule {
+  margin-top: 56px;
+  max-width: 900px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-x 1100ms var(--ease-expo) 2.4s forwards;
+}
+.co-title-badge {
+  margin: 28px 0 0;
+  font-size: 28px;
+  color: var(--text-mute);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) 2.9s forwards;
+}

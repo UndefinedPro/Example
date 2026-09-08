@@ -1,0 +1,225 @@
+/* 07 · motion-task-heartbeat — 前缀 .mt- */
+.mt-scene {
+  font-family: var(--font-body);
+}
+.mt-center {
+  justify-content: center;
+}
+
+/* step 0 —— 文件 + 心跳 */
+.mt-file {
+  display: inline-block;
+  margin-top: 44px;
+  font-family: var(--font-mono);
+  font-size: 30px;
+  color: var(--surface);
+  background: var(--text);
+  border-radius: var(--r-sm);
+  padding: 18px 38px;
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.mt-beat {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) 1.2s forwards;
+}
+.mt-watch {
+  width: 240px;
+}
+.mt-watch-halo {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-halo 2.2s var(--ease-soft) 2.2s infinite;
+}
+.mt-watch-rim {
+  fill: var(--surface-2);
+  stroke: var(--text);
+  stroke-width: 6;
+}
+.mt-watch-hands {
+  stroke: var(--accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mt-tick 2.4s steps(2) infinite;
+}
+@keyframes mt-tick {
+  to { transform: rotate(360deg); }
+}
+.mt-watch-pin {
+  fill: var(--text);
+}
+.mt-beat-num {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+}
+.mt-beat-num .hero-num {
+  font-size: 210px;
+  color: var(--text);
+}
+.mt-beat-num em {
+  font-style: normal;
+  font-family: var(--font-display-cn);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.mt-beat-note {
+  margin: 56px 0 0;
+  font-size: 30px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.mt-beat-note code {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  color: var(--text);
+  border-bottom: 3px solid var(--accent);
+}
+
+/* step 1/2/3 —— 五件事槽位 */
+.mt-slots {
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 900px;
+}
+.mt-slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 22px 34px;
+  border: 2px dashed var(--rule);
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 600ms var(--ease-quart) forwards;
+}
+.mt-slot em {
+  font-style: normal;
+  font-family: var(--font-display-en);
+  font-size: 40px;
+  color: var(--text-faint);
+}
+.mt-slot-blank {
+  height: 34px;
+  flex: 1;
+}
+.mt-body {
+  margin-top: 30px;
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+}
+.mt-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 520px;
+  flex: none;
+}
+.mt-slot-rail {
+  padding: 16px 26px;
+  animation: none;
+  opacity: 1;
+}
+.mt-slot-rail.is-on {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.mt-slot-rail.is-on em {
+  color: var(--accent);
+}
+.mt-slot-rail.is-done {
+  opacity: 0.45;
+  border-style: solid;
+}
+.mt-slot-check {
+  position: absolute;
+  right: 26px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  color: var(--text-mute);
+}
+.mt-detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+.mt-detail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 60px 70px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.4s forwards;
+}
+.mt-api {
+  font-family: var(--font-mono);
+  font-size: 47px;
+  font-weight: 700;
+  color: var(--text);
+}
+.mt-api-note {
+  margin: 0;
+  font-size: 34px;
+  color: var(--text-2);
+}
+.mt-api-note b {
+  color: var(--accent);
+}
+
+/* step 3 —— 模式表 */
+.mt-mode-card {
+  gap: 44px;
+}
+.mt-modes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.mt-mode {
+  display: flex;
+  align-items: baseline;
+  gap: 34px;
+  padding: 24px 8px;
+  border-top: 1px solid var(--rule);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.mt-mode-no {
+  font-size: 58px;
+  color: var(--accent);
+  width: 130px;
+}
+.mt-mode-name {
+  font-family: var(--font-display-cn);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+  width: 420px;
+}
+.mt-mode-sub {
+  font-size: 26px;
+  color: var(--text-mute);
+}

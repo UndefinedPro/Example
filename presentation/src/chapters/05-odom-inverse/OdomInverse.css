@@ -1,0 +1,245 @@
+/* 05 · odom-inverse — 前缀 .oi- */
+.oi-scene {
+  font-family: var(--font-body);
+}
+.oi-center {
+  justify-content: center;
+}
+
+/* step 0 —— 正反两方向 */
+.oi-lane {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.oi-lane-io {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 330px;
+  padding: 32px 34px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-display-cn);
+}
+.oi-lane-io em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--text-mute);
+}
+.oi-lane-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 430px;
+}
+.oi-lane-arrow code {
+  font-family: var(--font-mono);
+  font-size: 33px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.oi-arrow {
+  width: 380px;
+  height: 22px;
+  position: relative;
+}
+.oi-arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 100%;
+  height: 4px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-x 900ms var(--ease-expo) 0.8s forwards;
+}
+.oi-arrow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+}
+.oi-arrow-fwd::after {
+  right: 0;
+  border-left: 16px solid var(--accent);
+  opacity: 0;
+  animation: fade-in 300ms var(--ease-quart) 1.6s forwards;
+}
+.oi-arrow-back::before {
+  transform-origin: right;
+}
+.oi-arrow-back::after {
+  left: 0;
+  border-right: 16px solid var(--accent);
+  opacity: 0;
+  animation: fade-in 300ms var(--ease-quart) 3s forwards;
+}
+.oi-lane-role {
+  font-family: var(--font-display-cn);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.2em;
+}
+.oi-lane-role-b {
+  color: var(--text-2);
+}
+.oi-note {
+  margin: 70px 0 0;
+  font-size: 30px;
+  color: var(--text-mute);
+  text-align: center;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) 4.2s forwards;
+}
+
+/* step 1 —— /odom 积分 */
+.oi-odom {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
+.oi-odom-left,
+.oi-odom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.oi-odom-left {
+  animation-delay: 0.3s;
+}
+.oi-wheel {
+  width: 220px;
+}
+.oi-wheel-rim {
+  fill: var(--surface-2);
+  stroke: var(--text);
+  stroke-width: 6;
+}
+.oi-wheel-spoke {
+  stroke: var(--accent);
+  stroke-width: 5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: oi-spin 1.4s linear 4;
+}
+@keyframes oi-spin {
+  to { transform: rotate(90deg); }
+}
+.oi-wheel-hub {
+  fill: var(--text);
+}
+.oi-odom-cap {
+  font-size: 26px;
+  color: var(--text-mute);
+}
+.oi-odom-curve {
+  width: 760px;
+  opacity: 0;
+  animation: fade-in 700ms var(--ease-quart) 1.6s forwards;
+}
+.oi-axis {
+  stroke: var(--text-faint);
+  stroke-width: 3;
+}
+.oi-axis-label {
+  fill: var(--text-mute);
+  font-size: 26px;
+  font-family: var(--font-mono);
+}
+.oi-curve {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: oi-draw 2.2s var(--ease-soft) 2.1s forwards;
+}
+@keyframes oi-draw {
+  to { stroke-dashoffset: 0; }
+}
+.oi-odom-right {
+  animation-delay: 2.4s;
+}
+.oi-topic {
+  font-family: var(--font-mono);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--accent);
+  border: 3px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: 18px 44px;
+}
+
+/* step 2 —— 双面卡 */
+.oi-duo {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.oi-duo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 520px;
+  padding: 60px 56px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.oi-duo-card b {
+  font-family: var(--font-display-cn);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.oi-duo-card span {
+  font-size: 30px;
+  color: var(--text-2);
+}
+.oi-duo-x {
+  font-size: 110px;
+  color: var(--text-faint);
+  opacity: 0;
+  animation: pop-in 700ms var(--ease-overshoot) forwards;
+}
+.oi-close {
+  margin: 80px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 3.2s forwards;
+}
+.oi-close em {
+  font-style: normal;
+  color: var(--accent);
+}

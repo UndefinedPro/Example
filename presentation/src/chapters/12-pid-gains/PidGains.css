@@ -1,0 +1,307 @@
+/* 12 · pid-gains — 前缀 .pg- */
+.pg-scene {
+  font-family: var(--font-body);
+}
+.pg-center {
+  justify-content: center;
+}
+.pg-term-head {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 26px;
+  font-family: var(--font-display-cn);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--text);
+}
+.pg-term-head .hero-num {
+  font-size: 130px;
+  color: var(--accent);
+}
+
+/* step 0 —— P */
+.pg-term {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  width: 1240px;
+  padding: 70px 90px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.3s forwards;
+}
+.pg-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.pg-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.pg-bar-row em {
+  font-style: normal;
+  font-family: var(--font-display-cn);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-2);
+  width: 170px;
+  text-align: right;
+}
+.pg-bar {
+  flex: 1;
+  height: 40px;
+  background: var(--surface-3);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.pg-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--r-pill);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-x 1s var(--ease-expo) forwards;
+}
+.pg-bar-err {
+  width: 82%;
+  background: var(--text-2);
+}
+.pg-bar-out {
+  width: 82%;
+  background: var(--accent);
+}
+.pg-slogan {
+  margin: 0;
+  font-family: var(--font-display-cn);
+  font-size: 58px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.pg-slogan em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 1 —— I */
+.pg-i {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  justify-content: center;
+}
+.pg-bucket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.3s forwards;
+}
+.pg-bucket svg {
+  width: 230px;
+}
+.pg-bucket-body {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 7;
+}
+.pg-drops circle {
+  fill: var(--accent);
+  opacity: 0;
+  animation: pg-drop 1.1s var(--ease-soft) infinite;
+}
+.pg-drops circle:nth-child(1) { animation-delay: 1.2s; }
+.pg-drops circle:nth-child(2) { animation-delay: 1.7s; }
+.pg-drops circle:nth-child(3) { animation-delay: 2.2s; }
+@keyframes pg-drop {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(140px); }
+}
+.pg-bucket-fill {
+  fill: var(--accent);
+  opacity: 0.55;
+  transform-origin: 80px 214px;
+  animation: pg-fill 1.8s var(--ease-soft) 1s forwards;
+}
+@keyframes pg-fill {
+  from { transform: scaleY(0.15); }
+  to   { transform: scaleY(1); }
+}
+.pg-bucket em {
+  font-style: normal;
+  font-size: 28px;
+  color: var(--text-mute);
+}
+.pg-i-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 44px;
+  max-width: 880px;
+}
+.pg-ki {
+  font-size: 34px;
+  color: var(--text-2);
+  border: 1px solid var(--rule);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+  padding: 20px 36px;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.pg-ki code {
+  font-family: var(--font-mono);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.pg-ki b {
+  color: var(--accent);
+}
+.pg-i-note {
+  margin: 0;
+  font-size: 34px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.pg-i-note b {
+  color: var(--accent);
+}
+
+/* step 2 —— D */
+.pg-d {
+  margin-top: 50px;
+}
+.pg-d-curve {
+  width: 1400px;
+  opacity: 0;
+  animation: fade-in 700ms var(--ease-quart) 0.3s forwards;
+}
+.pg-d-axis {
+  stroke: var(--rule);
+  stroke-width: 3;
+}
+.pg-d-target {
+  fill: var(--text-mute);
+  font-size: 24px;
+  font-family: var(--font-mono);
+}
+.pg-d-line {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
+  animation: pg-draw 1.9s var(--ease-soft) 0.8s forwards;
+}
+@keyframes pg-draw {
+  to { stroke-dashoffset: 0; }
+}
+.pg-d-peak {
+  fill: var(--accent);
+  opacity: 0;
+  animation: pop-in 600ms var(--ease-overshoot) 2.6s forwards;
+}
+.pg-d-peak-label {
+  fill: var(--accent);
+  font-size: 28px;
+  opacity: 0;
+  animation: fade-in 500ms var(--ease-quart) 2.8s forwards;
+}
+.pg-d-foot {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1400px;
+}
+.pg-d-desc {
+  font-family: var(--font-display-cn);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 1.6s forwards;
+}
+.pg-d-desc em {
+  font-style: normal;
+  color: var(--accent);
+}
+.pg-stamp {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-faint);
+  border: 4px solid var(--text-faint);
+  border-radius: var(--r-sm);
+  padding: 18px 36px;
+  rotate: -7deg;
+  opacity: 0;
+  animation: pop-in 650ms var(--ease-overshoot) forwards;
+}
+
+/* step 3 —— 增量式 / 位置式 */
+.pg-modes {
+  margin-top: 70px;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+}
+.pg-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+  width: 620px;
+  padding: 60px 64px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.pg-mode:first-child {
+  border: 2px solid var(--accent);
+}
+.pg-mode-tag {
+  font-family: var(--font-mono);
+  font-size: 25px;
+  color: var(--text-mute);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  padding: 8px 22px;
+}
+.pg-mode-name {
+  font-family: var(--font-display-cn);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.pg-mode-use {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text);
+}
+.pg-mode-why {
+  margin: 0;
+  font-size: 29px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+.pg-mode-why b {
+  color: var(--accent);
+}

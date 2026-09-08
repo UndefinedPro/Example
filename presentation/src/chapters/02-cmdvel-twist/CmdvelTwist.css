@@ -1,0 +1,304 @@
+/* 02 · cmdvel-twist — 前缀 .tw- */
+.tw-scene {
+  font-family: var(--font-body);
+}
+.tw-center {
+  justify-content: center;
+}
+
+/* step 0 —— Twist 六分量 */
+.tw-head {
+  margin: 28px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 0.2s forwards;
+}
+.tw-head code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+.tw-grid {
+  margin-top: 74px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+}
+.tw-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 40px 44px;
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.tw-cell.is-idle {
+  background: var(--surface-3);
+  border: 1px dashed var(--rule);
+}
+.tw-cell.is-used {
+  background: var(--surface-2);
+  border: 2px solid var(--accent);
+  box-shadow: var(--card-shadow);
+}
+.tw-cell-group {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  color: var(--text-mute);
+}
+.tw-cell-axis {
+  font-size: 52px;
+  color: var(--text-2);
+}
+.tw-cell.is-used .tw-cell-axis {
+  color: var(--accent);
+  font-weight: 700;
+}
+.tw-cell.is-idle .tw-cell-axis {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--text-faint);
+}
+.tw-cell-flag {
+  position: absolute;
+  top: -16px;
+  right: 22px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.14em;
+  color: var(--surface);
+  background: var(--accent);
+  border-radius: var(--r-pill);
+  padding: 6px 16px;
+  animation: pop-in 550ms var(--ease-overshoot) 3.4s both;
+}
+.tw-grid-note {
+  margin: 56px 0 0;
+  font-size: 30px;
+  color: var(--text-mute);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) 4s forwards;
+}
+
+/* step 1 —— 两个定义卡 */
+.tw-defs {
+  margin-top: 70px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+.tw-def {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 620px;
+  padding: 56px 50px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) forwards;
+}
+.tw-def-name {
+  font-family: var(--font-mono);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text);
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 10px;
+}
+.tw-def-hero {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+.tw-def-hero .hero-num {
+  font-size: 120px;
+  color: var(--accent);
+}
+.tw-def-unit {
+  font-size: 30px;
+  color: var(--text-mute);
+}
+.tw-def-ico {
+  width: 220px;
+}
+.tw-arrow-line {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tw-arrow-dot {
+  fill: var(--accent);
+}
+.tw-def-desc {
+  margin: 0;
+  font-size: 32px;
+  color: var(--text-2);
+}
+.tw-def-desc em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* step 2 —— 驾驶舱比喻 */
+.tw-metaphor-head {
+  margin: 26px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 62px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 0.2s forwards;
+}
+.tw-cockpit {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 190px;
+}
+.tw-cockpit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) forwards;
+}
+.tw-pedal {
+  width: 190px;
+}
+.tw-pedal-face {
+  fill: var(--surface-2);
+  stroke: var(--text);
+  stroke-width: 5;
+}
+.tw-pedal-grip {
+  stroke: var(--accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+.tw-pedal-base {
+  stroke: var(--text-faint);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+.tw-wheel {
+  width: 200px;
+}
+.tw-wheel-ring {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 12;
+}
+.tw-wheel-hub {
+  fill: var(--accent);
+}
+.tw-wheel-arm {
+  stroke: var(--text);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+.tw-cockpit-role {
+  font-family: var(--font-display-cn);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text);
+}
+.tw-cockpit-field {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: 8px 24px;
+}
+
+/* step 3 —— 分层 */
+.tw-never {
+  margin: 40px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.3s forwards;
+}
+.tw-never em {
+  font-style: normal;
+  color: var(--accent);
+}
+.tw-stack {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.tw-stack-layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 760px;
+  padding: 34px 40px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.tw-stack-layer-low {
+  background: var(--surface-3);
+}
+.tw-stack-layer b {
+  font-family: var(--font-display-cn);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+}
+.tw-stack-tag {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  color: var(--text-mute);
+}
+.tw-stack-bus {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.tw-stack-bus span {
+  font-size: 27px;
+  color: var(--accent);
+  font-weight: 700;
+}
+.tw-stack-bus svg {
+  width: 30px;
+}
+.tw-stack-flow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

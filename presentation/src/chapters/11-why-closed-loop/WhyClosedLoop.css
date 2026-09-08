@@ -1,0 +1,258 @@
+/* 11 · why-closed-loop — 前缀 .wc- */
+.wc-scene {
+  font-family: var(--font-body);
+}
+.wc-center {
+  justify-content: center;
+}
+
+/* step 0 —— 问题大字 */
+.wc-q {
+  margin: 40px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 120px;
+  font-weight: 700;
+  letter-spacing: var(--track-tight);
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 950ms var(--ease-quart) 0.4s forwards;
+}
+.wc-q .hero-num {
+  font-size: 130px;
+  color: var(--accent);
+}
+.wc-q-sub {
+  margin: 36px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 46px;
+  font-weight: 500;
+  color: var(--text-mute);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) 1.4s forwards;
+}
+
+/* step 1 —— 开环对比 */
+.wc-badge-row {
+  margin-top: 44px;
+}
+.wc-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 27px;
+  color: var(--surface);
+  background: var(--text);
+  border-radius: var(--r-pill);
+  padding: 14px 40px;
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.wc-vs {
+  margin-top: 60px;
+  display: flex;
+  gap: 70px;
+  justify-content: center;
+}
+.wc-case {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 560px;
+  padding: 46px 56px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.wc-case-name {
+  font-family: var(--font-display-cn);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text);
+}
+.wc-case-bar {
+  display: block;
+  height: 30px;
+  background: var(--surface-3);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.wc-case-fill {
+  display: block;
+  height: 100%;
+  width: 86%;
+  background: var(--text-2);
+  border-radius: var(--r-pill);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-x 1s var(--ease-expo) forwards;
+}
+.wc-case-fill-low {
+  width: 38%;
+  background: var(--accent);
+}
+.wc-case-val {
+  font-size: 28px;
+  color: var(--text-2);
+}
+.wc-case-val .hero-num {
+  font-size: 54px;
+  color: var(--accent);
+  margin-left: 8px;
+}
+.wc-verdict {
+  margin: 70px 0 0;
+  text-align: center;
+  font-family: var(--font-display-cn);
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.wc-verdict em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 2 —— 闭环修正环 */
+.wc-loop {
+  margin-top: 70px;
+}
+.wc-loop-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+.wc-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 34px 40px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  font-size: 28px;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.wc-node .hero-num {
+  font-size: 78px;
+  color: var(--text);
+}
+.wc-node-diff {
+  border: 2px solid var(--accent);
+  background: var(--accent-soft);
+}
+.wc-node-diff .hero-num {
+  color: var(--accent);
+}
+.wc-loop-arrow {
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  position: relative;
+  flex: none;
+  opacity: 0;
+  animation: fade-in 350ms var(--ease-quart) forwards;
+}
+.wc-loop-arrow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--accent);
+}
+.wc-loop-back {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.wc-loop-return {
+  width: 860px;
+  height: 46px;
+  border-left: 4px solid var(--text-faint);
+  border-right: 4px solid var(--text-faint);
+  border-bottom: 4px solid var(--text-faint);
+  border-radius: 0 0 24px 24px;
+  opacity: 0;
+  animation: fade-in 800ms var(--ease-quart) forwards;
+}
+.wc-loop-back-label {
+  font-size: 26px;
+  color: var(--text-mute);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+.wc-cycle {
+  margin-top: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  font-family: var(--font-display-cn);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.wc-cycle .hero-num {
+  font-size: 74px;
+  color: var(--accent);
+}
+.wc-cycle-ico {
+  width: 60px;
+}
+.wc-cycle-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* step 3 —— 参数卡 */
+.wc-params {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 520px);
+  gap: 44px;
+}
+.wc-param {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  padding: 44px 54px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.wc-param code {
+  font-family: var(--font-mono);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text);
+  width: 250px;
+}
+.wc-param .hero-num {
+  font-size: 84px;
+  color: var(--accent);
+}
+.wc-param em {
+  font-style: normal;
+  font-size: 26px;
+  color: var(--text-mute);
+}

@@ -1,0 +1,308 @@
+/* 04 · kinematics-detail — 前缀 .kt- */
+.kt-scene {
+  font-family: var(--font-body);
+}
+.kt-center {
+  justify-content: center;
+}
+.kt-head {
+  margin: 28px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.2s forwards;
+}
+.kt-head code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+.kt-head em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* step 0 —— 常量表 */
+.kt-table {
+  margin-top: 70px;
+  max-width: 1240px;
+}
+.kt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 60px;
+  padding: 34px 50px;
+  border-bottom: 1px solid var(--rule);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.kt-row.is-star {
+  background: var(--accent-soft);
+  border: 2px solid var(--accent);
+  border-radius: var(--r-card);
+  margin-top: 26px;
+}
+.kt-row-name {
+  font-family: var(--font-mono);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+  width: 430px;
+}
+.kt-row-val {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  width: 300px;
+}
+.kt-row-val .hero-num {
+  font-size: 96px;
+  color: var(--accent);
+}
+.kt-row-val i {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 30px;
+  color: var(--text-mute);
+}
+.kt-row-desc {
+  font-size: 32px;
+  color: var(--text-2);
+}
+.kt-row.is-star .kt-row-desc {
+  font-weight: 700;
+  color: var(--text);
+}
+.kt-note {
+  margin: 44px 0 0;
+  font-size: 28px;
+  color: var(--text-mute);
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) forwards;
+}
+
+/* step 1 —— 几何示意 */
+.kt-geo {
+  margin-top: 30px;
+}
+.kt-geo-svg {
+  width: 1460px;
+  margin-left: -130px;
+}
+.kt-geo-rot {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: fade-in 800ms var(--ease-quart) 0.8s forwards;
+}
+.kt-geo-rot-label {
+  fill: var(--accent);
+  font-size: 30px;
+  font-family: var(--font-mono);
+  opacity: 0;
+  animation: fade-in 700ms var(--ease-quart) 1.2s forwards;
+}
+.kt-geo-body {
+  fill: var(--surface-2);
+  stroke: var(--text);
+  stroke-width: 5;
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) 0.3s forwards;
+}
+.kt-geo-wheel {
+  fill: var(--surface-3);
+  stroke: var(--text);
+  stroke-width: 5;
+  opacity: 0;
+  animation: rise-in 700ms var(--ease-quart) 0.6s forwards;
+}
+.kt-geo-dot {
+  fill: var(--accent);
+  opacity: 0;
+  animation: pop-in 600ms var(--ease-overshoot) 1s forwards;
+}
+.kt-geo-lead {
+  fill: none;
+  stroke: var(--text-2);
+  stroke-width: 4;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: fade-in 700ms var(--ease-quart) 1.5s forwards;
+}
+.kt-geo-lead-label {
+  fill: var(--text);
+  font-size: 32px;
+  font-family: var(--font-mono);
+  opacity: 0;
+  animation: fade-in 700ms var(--ease-quart) 1.8s forwards;
+}
+.kt-geo-tags {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 10px auto 0;
+}
+.kt-geo-tag {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 20px 40px;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.kt-geo-tag code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+/* step 2 —— 换算链 */
+.kt-chain {
+  margin-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+}
+.kt-chain-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 430px;
+  padding: 50px 40px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  animation: rise-in 850ms var(--ease-quart) forwards;
+}
+.kt-chain-node b {
+  font-family: var(--font-display-cn);
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--text);
+}
+.kt-chain-node code {
+  font-family: var(--font-mono);
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.kt-chain-mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display-cn);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text-2);
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.kt-chain-arrow {
+  width: 74px;
+  height: 0;
+  border-top: 3px solid var(--accent);
+  opacity: 0;
+  animation: fade-in 500ms var(--ease-quart) 3.2s forwards;
+}
+.kt-badge {
+  display: inline-block;
+  margin: 74px auto 0;
+  font-size: 30px;
+  color: var(--text-2);
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--r-pill);
+  padding: 20px 46px;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.kt-badge code {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* step 3 —— 三动作 + 公式 */
+.kt-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+.kt-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: rise-in 750ms var(--ease-quart) forwards;
+}
+.kt-action svg {
+  width: 170px;
+}
+.kt-a-wheel {
+  fill: var(--surface-3);
+  stroke: var(--text);
+  stroke-width: 4;
+}
+.kt-a-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.kt-action b {
+  font-family: var(--font-display-cn);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+}
+.kt-formula {
+  margin-top: 66px;
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  padding: 30px 60px;
+  background: var(--surface-2);
+  border: 2px solid var(--accent);
+  border-radius: var(--r-card);
+  opacity: 0;
+  animation: rise-in 900ms var(--ease-quart) forwards;
+}
+.kt-formula code {
+  font-family: var(--font-mono);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--text);
+}
+.kt-formula b {
+  color: var(--accent);
+}
+.kt-formula span {
+  font-size: 28px;
+  color: var(--text-mute);
+}
+.kt-close {
+  margin: 50px 0 0;
+  font-family: var(--font-display-cn);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  animation: rise-in 800ms var(--ease-quart) forwards;
+}
+.kt-close em {
+  font-style: normal;
+  color: var(--accent);
+}
